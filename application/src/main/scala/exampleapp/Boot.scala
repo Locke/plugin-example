@@ -15,7 +15,7 @@ object Boot {
     println("exampleapp.Boot: config key 'a' = '" + a + "'")
 
     val pluginFiles = Map(
-        "exampleplugin.MyPluginImplementation" -> new File("./artifacts/exampleplugin.jar") // TODO: this is relative to root project!
+        "exampleplugin.MyPluginImplementation" -> new File("../lib/exampleplugin.jar") // TODO: this is relative to pack/bin folder
       )
 
     val lib = new MyLib(pluginFiles)
