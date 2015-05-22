@@ -1,3 +1,6 @@
+import _root_.java.io._
+import _root_.java.nio.file._
+
 lazy val commonSettings = Seq(
   version := "0.0.2",
   scalaVersion := "2.11.6"
@@ -17,7 +20,7 @@ lazy val plugin = project.
   settings(
     copyPluginToApplication := {
       val (art, file) = packagedArtifact.in(Compile, packageBin).value
-      "cp " + file.getAbsolutePath + " ./application/src/pack/lib/exampleplugin.jar" !
+      Files.copy(file.toPath, new File("./application/src/pack/lib/exampleplugin.jar").toPath, StandardCopyOption.REPLACE_EXISTING)
     }
   ).
   dependsOn(library)
